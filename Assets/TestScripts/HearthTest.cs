@@ -13,8 +13,7 @@ public class HearthTest
     [SetUp]
     public void BeforeTest()
     {
-        _image = new GameObject().AddComponent<Image>();
-        _hearth = new Heart(_image);
+        _hearth = new Heart();
 
 
     }
@@ -48,28 +47,3 @@ public class HearthTest
 
 }
 
-//Classe que define como deve-se comportar
-public class Heart
-{
-    public Image _image;
-    public Heart(Image image)
-    {
-        //Expor para receber a imagem
-        _image = image;
-
-    }
-    public void ReceiveDamage(float damageForce)
-    {
-        if(damageForce < 0)
-        {
-            return;
-        }
-        _image.fillAmount -= damageForce;
-    }
-
-    internal float GetImageFill()
-    {
-        return _image.fillAmount;
-    }
-
-}
