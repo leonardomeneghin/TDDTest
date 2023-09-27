@@ -1,21 +1,25 @@
 
 using NUnit.Framework;
 using UnityEngine;
+using UnityEngine.TestTools;
 using UnityEngine.UI;
 
 //Classe que verifica se a classe está se comportamento corretamente
 public class HearthTest
 {
     public  Image _image;
-    public  Heart _hearth;
+    public HeartMock _hearth;
     public int integridadePivo;
     
     [SetUp]
     public void BeforeTest()
     {
-        _hearth = new Heart();
-
-
+        _hearth = new HeartMock();
+    }
+    [TearDown]
+    public void AfterTest()
+    {
+        _hearth = new HeartMock();
     }
     [Test]
     [TestCase(0, 1)]
