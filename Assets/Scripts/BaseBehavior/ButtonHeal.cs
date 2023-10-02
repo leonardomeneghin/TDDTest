@@ -9,7 +9,11 @@ namespace Assets.Scripts
 {
     public class ButtonHeal
     {
-
+        public int _healValue { get; set; }
+        ButtonHeal(int healValue)
+        {
+            _healValue = healValue;
+        }
         //Delegate
         public delegate void ButtonHealAllEventHandler(object sender, EventArgs args);
 
@@ -20,11 +24,7 @@ namespace Assets.Scripts
         List<EventHandler> eventHandlers = new List<EventHandler>();
         public void AddListener(EventHandler handler)
         {
-            if(handler != null)
-            {
-                eventHandlers.Add(handler);
-            }
-            
+            eventHandlers.Add(handler);
         }
 
         public void OnClickHeal()
