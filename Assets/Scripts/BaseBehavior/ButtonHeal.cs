@@ -4,13 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
     public class ButtonHeal
     {
         public int _healValue { get; set; }
-        ButtonHeal(int healValue)
+        public ButtonHeal() { }
+        public ButtonHeal(int healValue)
         {
             _healValue = healValue;
         }
@@ -31,7 +33,9 @@ namespace Assets.Scripts
         {
             var healValue = 1;
             //Emitir o evento de que realizou a cura + Realizar a cura
+            //BUG01: ButtonHealAll não possui ouvintes, necessário configurar
             ButtonHealAll(this, new NumericEventArgs(healValue));
         }
+
     }
 }

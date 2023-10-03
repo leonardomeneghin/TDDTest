@@ -9,18 +9,20 @@ using UnityEngine.TestTools;
 using UnityEngine.UI;
 
 //Classe que verifica se a classe está se comportamento corretamente
+[TestFixture]
 public class ButtonHealTest
 {
-    ButtonHeal _buttonHeal;
-
+    private ButtonHeal _buttonHeal;
     public HearthBehavior _hearth;
-
+    [SetUp]
+    public void SetUp()
+    {
+        _buttonHeal = new ButtonHeal();
+    }
     [Test]
-    [TestCase()]
-    public void receiveEventCLickFromButton(ButtonHeal heal)
+    public void receiveEventCLickFromButton()
     {
         var wasCalled = false;
-        _buttonHeal = heal;
         //Obter a classe
         EventHandler ouvinte = (sender, e) => wasCalled = true;
         EventHandler<NumericEventArgs> ouvinteHearth = (sender, e) => _hearth.SetImageFill(e.getValue());

@@ -12,11 +12,10 @@ public class HearthBehavior
     private GameObject _gameObject;
     internal Image _image;
 
-
-    public HearthBehavior(GameObject gameObject)
+    public HearthBehavior()
     {
-        _gameObject = gameObject;
-        _image = gameObject.GetComponent<Image>();
+        _gameObject = GameObject.Find("Foreground");
+        _image = _gameObject?.GetComponent<Image>();
     }
 
     public void ReceiveDamage(float damageForce)
@@ -33,6 +32,7 @@ public class HearthBehavior
     {
         return _image.fillAmount;
     }
+
     public void SetImageFill(float fillAmount)
     {
         _image.fillAmount = fillAmount;

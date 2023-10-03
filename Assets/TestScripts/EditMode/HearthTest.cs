@@ -8,18 +8,18 @@ using UnityEngine.UI;
 public class HearthTest
 {
     public  Image _image;
-    public HeartMock _hearth;
+    public HearthBehavior _hearth;
     public int integridadePivo;
     
     [SetUp]
     public void BeforeTest()
     {
-        _hearth = new HeartMock();
+        _hearth = new HearthBehavior();
     }
     [TearDown]
     public void AfterTest()
     {
-        _hearth = new HeartMock();
+        _hearth = new HearthBehavior();
     }
     [Test]
     [TestCase(0, 1)]
